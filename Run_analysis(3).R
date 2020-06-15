@@ -1,25 +1,25 @@
 library(dplyr)
-download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", destfile = "C:/Users/Sara.Stothers/Coursera/metadata.zip")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", destfile = "/Coursera/metadata.zip")
 
 #unzip the file and creat new directory 
-unzip(zipfile = "C:/Users/Sara.Stothers/Coursera/metadata.zip", exdir = "C:/Users/Sara.Stothers/Coursera/metadata.csv")
-list.files("C:/Users/Sara.Stothers/Coursera/metadata.csv")
+unzip(zipfile = "/Coursera/metadata.zip", exdir = "/Coursera/metadata.csv")
+list.files("/Coursera/metadata.csv")
 
 #create a new path to access all files in the directory 
-pathdata = file.path("C:/Users/Sara.Stothers/Coursera/metadata.csv", "UCI HAR Dataset")
+pathdata = file.path("/Coursera/metadata.csv", "UCI HAR Dataset")
 files= list.files(pathdata, recursive = TRUE)
 files
 
 library(dplyr)
 ##Assign the data frames
-features <- read.table("C:/Users/Sara.Stothers/Coursera/metadata.csv/UCI HAR Dataset/features.txt", col.names = c("n","functions"))
-activities <- read.table("C:/Users/Sara.Stothers/Coursera/metadata.csv/UCI HAR Dataset/activity_labels.txt", col.names = c("code", "activity"))
-subject_test<- read.table("C:/Users/Sara.Stothers/Coursera/metadata.csv/UCI HAR Dataset/test/subject_test.txt", col.names = "subject")
-x_test <- read.table("C:/Users/Sara.Stothers/Coursera/metadata.csv/UCI HAR Dataset/test/X_test.txt", col.names = features$functions)                       
-y_test <- read.table("C:/Users/Sara.Stothers/Coursera/metadata.csv/UCI HAR Dataset/test/y_test.txt", col.names = "code")
-subject_train <- read.table("C:/Users/Sara.Stothers/Coursera/metadata.csv/UCI HAR Dataset/train/subject_train.txt", col.names = "subject")
-x_train <- read.table("C:/Users/Sara.Stothers/Coursera/metadata.csv/UCI HAR Dataset/train/X_train.txt", col.names = features$functions)
-y_train <- read.table("C:/Users/Sara.Stothers/Coursera/metadata.csv/UCI HAR Dataset/train/y_train.txt", col.names = "code")
+features <- read.table("/Coursera/metadata.csv/UCI HAR Dataset/features.txt", col.names = c("n","functions"))
+activities <- read.table("/Coursera/metadata.csv/UCI HAR Dataset/activity_labels.txt", col.names = c("code", "activity"))
+subject_test<- read.table("/Coursera/metadata.csv/UCI HAR Dataset/test/subject_test.txt", col.names = "subject")
+x_test <- read.table("/Coursera/metadata.csv/UCI HAR Dataset/test/X_test.txt", col.names = features$functions)                       
+y_test <- read.table("/Coursera/metadata.csv/UCI HAR Dataset/test/y_test.txt", col.names = "code")
+subject_train <- read.table("/Coursera/metadata.csv/UCI HAR Dataset/train/subject_train.txt", col.names = "subject")
+x_train <- read.table("/Coursera/metadata.csv/UCI HAR Dataset/train/X_train.txt", col.names = features$functions)
+y_train <- read.table("/Coursera/metadata.csv/UCI HAR Dataset/train/y_train.txt", col.names = "code")
 
 #Instruction 1: Merge training and test data into one data set
 x <- rbind(x_train, x_test)
